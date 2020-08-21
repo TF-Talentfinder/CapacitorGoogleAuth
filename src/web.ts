@@ -3,7 +3,7 @@ import { GoogleAuthPlugin } from './definitions';
 import { User, Authentication } from './user';
 
 // @ts-ignore
-import config from '../../../../../capacitor.config.json';
+import config from '../../../../../apps/craftswerk/capacitor.config.json';
 
 export class GoogleAuthWeb extends WebPlugin implements GoogleAuthPlugin {
   gapiLoaded: Promise<void>;
@@ -46,7 +46,7 @@ export class GoogleAuthWeb extends WebPlugin implements GoogleAuthPlugin {
         client_id: (document.getElementsByName('google-signin-client_id')[0] as any).content,
       };
 
-      if (config.plugins.GoogleAuth != null && config.plugins.GoogleAuth.scopes != null) {
+      if (config.plugins.GoogleAuth?.scopes != null) {
         clientConfig.scope = config.plugins.GoogleAuth.scopes.join(' ');
       }
 
