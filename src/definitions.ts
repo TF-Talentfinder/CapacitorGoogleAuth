@@ -1,9 +1,12 @@
-declare module "@capacitor/core" {
+import { User } from './user';
+
+declare module '@capacitor/core' {
   interface PluginRegistry {
     GoogleAuth: GoogleAuthPlugin;
   }
 }
 
 export interface GoogleAuthPlugin {
-  signIn(options: { value: string }): Promise<{value: string}>;
+  signIn(): Promise<User>;
+  signOut(): Promise<unknown>;
 }
